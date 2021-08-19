@@ -21,7 +21,7 @@ get the script in your machine: <code color=yellow>git clone https://github.com/
 
 change directory to the directory having anime script:<code color=yellow>cd anime-terminal/</code>
 
-make the script executable: <code color=yellow>chmod +x anime-cli.sh</code>
+make the script executable: <code color=yellow>chmod +x ani-cli.sh</code>
 
 watch anime:<code color=yellow>./ani-cli.sh <i>"your_query"</i></code>
 
