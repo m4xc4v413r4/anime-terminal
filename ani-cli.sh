@@ -1,10 +1,7 @@
 #!/bin/sh
-
-# dependencies: grep sed curl celluloid video player
-# video_player ( needs to be able to play urls )
 player_fn="celluloid"
 
-prog="ani-cli"
+prog="ani-cli.sh"
 logfile="${XDG_CACHE_HOME:-$HOME/.cache}/ani-hsts"
 
 c_red="\033[1;31m"
@@ -14,7 +11,6 @@ c_blue="\033[1;34m"
 c_magenta="\033[1;35m"
 c_cyan="\033[1;36m"
 c_reset="\033[0m"
-
 
 help_text () {
 	while IFS= read line; do
@@ -26,7 +22,6 @@ help_text () {
 	 -H	 continue where you left off
 	EOF
 }
-
 
 die () {
 	printf "$c_red%s$c_reset\n" "$*" >&2
@@ -97,10 +92,6 @@ get_search_query () {
 # create history file
 [ -f "$logfile" ] || : > "$logfile"
 
-#####################
-## Anime selection ##
-#####################
-
 anime_selection () {
 	search_results=$*
 	menu_format_string='[%d] %s\n'
@@ -146,10 +137,6 @@ anime_selection () {
 	$(search_eps "$selection_id")
 	EOF
 }
-
-##################
-## Ep selection ##
-##################
 
 episode_selection () {
 	[ $is_download -eq 1 ] &&
@@ -211,11 +198,6 @@ open_episode () {
 	fi
 }
 
-############
-# Start Up #
-############
-
-# to clear the colors when exited using SIGINT
 trap "printf '$c_reset'" INT HUP
 
 dep_ch "$player_fn" "curl" "sed" "grep"
@@ -238,11 +220,7 @@ while getopts 'hdH' OPT; do
 	esac
 done
 shift $((OPTIND - 1))
-
-########
-# main #
-########
-
+#main
 case $scrape in
 	query)
 		get_search_query "$*"
@@ -306,11 +284,9 @@ while :; do
 
 		q)
 			break;;
-
 		*)
 			die "invalid choice"
 			;;
 	esac
-
 	open_episode "$selection_id" "$episode"
 done
