@@ -1,8 +1,6 @@
 # anime-terminal
 <h3 color=green> ani-cli.sh</h3>
 
-This is an original project of pystardust's [ani-cli](https://github.com/pystardust/ani-cli) followed by me ([YogeshLamichhane](https://www.github.com/YogeshLamichhane/))
-
 A cli to browse, watch and download anime.
 
 This tool scrapes the site [gogoanime](https://gogoanime.vc).
@@ -18,6 +16,7 @@ This tool scrapes the site [gogoanime](https://gogoanime.vc).
 ## Optional Dependency
 * git (to clone the script to your machine)
 
+# Installation
 <h4 color=red>install dependencies</h4>
 for arch based distros:<code color=yellow>sudo pacman -Sy --needed curl grep sed celluloid</code>
   
@@ -32,8 +31,10 @@ for debian based distros: <code color=yellow>sudo apt-get install python python-
 for arch based distros:<code color=yellow>sudo pacman -Sy --needed git</code>
   
 for debian based distros: <code color=yellow>sudo apt-get install git</code>
-<h3 color=green>Usage</h3>
+
 get the script in your machine: <code color=yellow>git clone https://github.com/YogeshLamichhane/anime-terminal/</code>
+
+# Usage
 
 change directory to the directory having anime script:<code color=yellow>cd anime-terminal/</code>
 
