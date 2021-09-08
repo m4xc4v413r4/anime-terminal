@@ -46,8 +46,17 @@ download anime:<code color=yellow>./ani-cli.sh -d <i>"your_query"</i></code>
 
 resume watching anime:<code color=yellow>./ani-cli.sh -H <i>"your_query"</i></code>
 
+<h3 color=green>Example: </h3>
+<h4 color=purple>Lets take an example of anime called tokyo revengers.</h4>
+
+watch anime: <code color=cyan>./ani-cli.sh tokyo-revengers</code>
+
+download anime: <code color=cyan>./ani-cli.sh -d tokyo-revengers</code>
+
+resume watching anime: <code color=cyan>./ani-cli.sh -H tokyo-revengers</code>
+
 <h3 color=green>Multiple episodes can be viewed/downloaded by giving the episode range like:</h3>
 
-Choose episode [1-13]: 1 6
+Choose episode [1-13]: <code color=cyan>1 6</code>
 
 This would open/download episodes 1 2 3 4 5 6
