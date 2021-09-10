@@ -5,6 +5,8 @@ A cli to browse, watch and download anime.
 
 This tool scrapes the site [gogoanime](https://gogoanime.vc).
 
+<h2 color=yellow>⚠️ The Website this script fetches (gogoanime) has been changed/ updated. The website redirects to another link before playing the video when we try to play the video so that it gives error while playing the episode. The script would be soon updated after fixing the issue.</h2>
+
 ## Dependencies
 
 * grep
