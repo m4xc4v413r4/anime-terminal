@@ -1,7 +1,7 @@
 #!/bin/sh
-player_fn="mpv"
+player_fn="celluloid"
 
-prog="ani-cli.sh"
+prog="anime-terminal"
 logfile="${XDG_CACHE_HOME:-$HOME/.cache}/ani-hsts"
 
 c_red="\033[1;31m"
@@ -11,6 +11,7 @@ c_blue="\033[1;34m"
 c_magenta="\033[1;35m"
 c_cyan="\033[1;36m"
 c_reset="\033[0m"
+
 
 help_text () {
 	while IFS= read line; do
@@ -22,6 +23,7 @@ help_text () {
 	 -H	 continue where you left off
 	EOF
 }
+
 
 die () {
 	printf "$c_red%s$c_reset\n" "$*" >&2
@@ -65,10 +67,19 @@ get_links () {
 
 	dpage_url=$(
 	curl -s "https://gogoanime.vc/$anime_id-episode-$ep_no" |
-	sed -n -E 's_^[[:space:]]*<a href="#" rel="100" data-video="([^"]*)" >.*_https:\1_p')
+	sed -n -E '
+		/^[[:space:]]*<li class="dowloads">/{
+		s/.*href="([^"]*)".*/\1/p
+		q
+		}')
 
 	curl -s "$dpage_url" |
-	sed -n -E "s/^[[:space:]]*sources:\[\{file\: '([^']*)'.*/\1/p" | sed 1q
+	sed -n -E '
+		/^[[:space:]]*href="([^"]*\.mp4)".*/{
+		s/^[[:space:]]*href="([^"]*\.mp4)".*/\1/p
+		q
+		}
+		'
 }
 
 dep_ch () {
@@ -91,6 +102,10 @@ get_search_query () {
 
 # create history file
 [ -f "$logfile" ] || : > "$logfile"
+
+#####################
+## Anime selection ##
+#####################
 
 anime_selection () {
 	search_results=$*
@@ -138,6 +153,10 @@ anime_selection () {
 	EOF
 }
 
+##################
+## Ep selection ##
+##################
+
 episode_selection () {
 	[ $is_download -eq 1 ] &&
 		printf "Range of episodes can be specified: start_number end_number\n"
@@ -152,8 +171,6 @@ open_episode () {
 	anime_id=$1
 	episode=$2
 
-	# clear the screen
-	printf '\x1B[2J\x1B[1;1H'
 	if [ $episode -lt 1 ] || [ $episode -gt $last_ep_number ]; then
 		err "Episode out of range"
 		printf "${c_blue}Choose episode $c_cyan[1-%d]$c_reset:$c_green " $last_ep_number
@@ -184,8 +201,7 @@ open_episode () {
 			s/^${selection_id}\t[0-9]+/${selection_id}\t$((episode+1))/
 		" "$logfile" > "${logfile}.new" && mv "${logfile}.new" "$logfile"
 
-		setsid -f $player_fn --http-header-fields='Referer: https://streamani.io/' "$video_url" >/dev/null 2>&1
-
+		setsid -f $player_fn "$video_url" >/dev/null 2>&1
 	else
 		printf "Downloading episode $episode ...\n"
 		printf "%s\n" "$video_url"
@@ -199,6 +215,11 @@ open_episode () {
 	fi
 }
 
+############
+# Start Up #
+############
+
+# to clear the colors when exited using SIGINT
 trap "printf '$c_reset'" INT HUP
 
 dep_ch "$player_fn" "curl" "sed" "grep"
@@ -221,7 +242,11 @@ while getopts 'hdH' OPT; do
 	esac
 done
 shift $((OPTIND - 1))
-#main
+
+########
+# main #
+########
+
 case $scrape in
 	query)
 		get_search_query "$*"
@@ -283,11 +308,13 @@ while :; do
 			[ "$episode" -eq "$episode" ] 2>/dev/null || die "Invalid number entered"
 			;;
 
-		q)
+		q) 
 			break;;
+
 		*)
 			die "invalid choice"
 			;;
 	esac
+
 	open_episode "$selection_id" "$episode"
 done
