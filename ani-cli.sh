@@ -1,5 +1,5 @@
 #!/bin/sh
-player_fn="celluloid"
+player_fn="mpv"
 
 prog="ani-cli.sh"
 logfile="${XDG_CACHE_HOME:-$HOME/.cache}/ani-hsts"
