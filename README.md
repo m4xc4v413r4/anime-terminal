@@ -1,5 +1,4 @@
 # anime-terminal
-<h3 color=green> ani-cli.sh</h3>
 
 A cli to browse, watch and download anime.
 
@@ -40,22 +39,22 @@ get the script in your machine: <code color=yellow>git clone https://github.com/
 
 change directory to the directory having anime script:<code color=yellow>cd anime-terminal/</code>
 
-make the script executable: <code color=yellow>chmod +x ani-cli.sh</code>
+make the script executable: <code color=yellow>chmod +x anime-terminal</code>
 
-watch anime:<code color=yellow>./ani-cli.sh <i>"your_query"</i></code>
+watch anime:<code color=yellow>./anime-terminal <i>"your_query"</i></code>
 
-download anime:<code color=yellow>./ani-cli.sh -d <i>"your_query"</i></code>
+download anime:<code color=yellow>./anime-terminal -d <i>"your_query"</i></code>
 
-resume watching anime:<code color=yellow>./ani-cli.sh -H <i>"your_query"</i></code>
+resume watching anime:<code color=yellow>./anime-terminal -H <i>"your_query"</i></code>
 
 <h3 color=green>Example: </h3>
 <h4 color=purple>Lets take an example of anime called tokyo revengers.</h4>
 
-watch anime: <code color=cyan>./ani-cli.sh tokyo-revengers</code>
+watch anime: <code color=cyan>./anime-terminal tokyo-revengers</code>
 
-download anime: <code color=cyan>./ani-cli.sh -d tokyo-revengers</code>
+download anime: <code color=cyan>./anime-terminal -d tokyo-revengers</code>
 
-resume watching anime: <code color=cyan>./ani-cli.sh -H tokyo-revengers</code>
+resume watching anime: <code color=cyan>./anime-terminal -H tokyo-revengers</code>
 
 <h3 color=green>Multiple episodes can be viewed/downloaded by giving the episode range like:</h3>
 
