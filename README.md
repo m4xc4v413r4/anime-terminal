@@ -4,7 +4,7 @@ A cli to browse, watch and download anime.
 
 This tool scrapes the site [gogoanime](https://gogoanime.vc).
 
-<h2 color=yellow>⚠️ Update: the error has been fixed and the script is working fine again. </h2>
+<h2 color=green>⚠️ Update: the error has been fixed and the script is working fine again. </h2>
 
 ## Dependencies
 
@@ -19,33 +19,81 @@ This tool scrapes the site [gogoanime](https://gogoanime.vc).
 
 # Installation
 <h4 color=red>install dependencies</h4>
-for arch based distros:<code color=yellow>sudo pacman -Sy --needed curl grep sed celluloid</code>
-  
-for debian based distros: <code color=yellow>sudo apt-get install curl grep sed celluloid</code>
+for arch based distros:
+
+```
+sudo pacman -Sy --needed curl grep sed celluloid
+```
+
+for debian based distros:
+
+```
+sudo apt-get install curl grep sed celluloid
+```
 
 <h4 color=red>install youtube-dl (to download the anime)</h4>
-for arch based distros:<code color=yellow>sudo pacman -Sy --needed python python-pip && sudo pip install youtube-dl</code>
+for arch based distros:
+
+```
+sudo pacman -Sy --needed python python-pip && sudo pip install youtube-dl
+```
   
-for debian based distros: <code color=yellow>sudo apt-get install python python-pip && sudo pip install youtube-dl</code>
+for debian based distros:
+
+```
+sudo apt-get install python python-pip && sudo pip install youtube-dl
+```
 
 <h4 color=red>install optional dependency to clone the script</h4>
-for arch based distros:<code color=yellow>sudo pacman -Sy --needed git</code>
-  
-for debian based distros: <code color=yellow>sudo apt-get install git</code>
+for arch based distros:
 
-get the script in your machine: <code color=yellow>git clone https://github.com/YogeshLamichhane/anime-terminal/</code>
+```
+sudo pacman -Sy --needed git
+```
+  
+for debian based distros:
+
+```
+sudo apt-get install git
+```
 
 # Usage
 
-change directory to the directory having anime script:<code color=yellow>cd anime-terminal/</code>
+get the script in your machine:
 
-make the script executable: <code color=yellow>chmod +x anime-terminal</code>
+```
+git clone https://github.com/YogeshLamichhane/anime-terminal/
+```
 
-watch anime:<code color=yellow>./anime-terminal <i>"your_query"</i></code>
+change directory to the directory having anime script:
 
-download anime:<code color=yellow>./anime-terminal -d <i>"your_query"</i></code>
+```
+cd anime-terminal/
+```
 
-resume watching anime:<code color=yellow>./anime-terminal -H <i>"your_query"</i></code>
+make the script executable:
+
+```
+chmod +x anime-terminal
+```
+
+watch anime:
+
+```
+./anime-terminal <your_query>
+```
+
+download anime:
+
+```
+./anime-terminal -d <your_query>
+```
+
+resume watching anime:
+
+```
+./anime-terminal -H
+```
 
 <h3 color=green>Example: </h3>
 <h4 color=purple>Lets take an example of anime called tokyo revengers.</h4>
