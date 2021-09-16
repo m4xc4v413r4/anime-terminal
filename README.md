@@ -108,9 +108,9 @@ and execute the script from anywhere in the terminal using command `anime-termin
 
 To watch tokyo revengers: `./anime-terminal tokyo-revengers`
 
-download anime: `./anime-terminal -d tokyo-revengers`
+To download tokyo revengers: `./anime-terminal -d tokyo-revengers`
 
-resume watching anime: `./anime-terminal -H tokyo-revengers`
+To resume watching tokyo revengers: `./anime-terminal -H tokyo-revengers`
 
 ### Multiple episodes can be viewed/downloaded by giving the episode range like:
 Choose episode [1-13]: `1 6`
