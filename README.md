@@ -2,9 +2,9 @@
 
 A cli to browse, watch and download anime.
 
-This tool scrapes the site [gogoanime](https://gogoanime.vc).
+Watch your favorite anime from linux terminal. You don't need a browser to watch anime now.
 
-<h2 color=green>⚠️ Update: the error has been fixed and the script is working fine again. </h2>
+This tool scrapes the site [gogoanime](https://gogoanime.vc).
 
 ## Dependencies
 
@@ -18,7 +18,8 @@ This tool scrapes the site [gogoanime](https://gogoanime.vc).
 * git (to clone the script to your machine)
 
 # Installation
-<h4 color=red>install dependencies</h4>
+### Install Dependencies
+
 for arch based distros:
 
 ```
@@ -31,7 +32,8 @@ for debian based distros:
 sudo apt-get install curl grep sed celluloid
 ```
 
-<h4 color=red>install youtube-dl (to download the anime)</h4>
+
+### Install youtube-dl (only to download the anime)
 for arch based distros:
 
 ```
@@ -44,7 +46,7 @@ for debian based distros:
 sudo apt-get install python python-pip && sudo pip install youtube-dl
 ```
 
-<h4 color=red>install optional dependency to clone the script</h4>
+### install optional dependency to clone the script
 for arch based distros:
 
 ```
@@ -83,7 +85,7 @@ watch anime:
 ./anime-terminal <your_query>
 ```
 
-download anime:
+download anime: (anime will be downloaded in your current/active directory)
 
 ```
 ./anime-terminal -d <your_query>
@@ -95,17 +97,22 @@ resume watching anime:
 ./anime-terminal -H
 ```
 
-<h3 color=green>Example: </h3>
-<h4 color=purple>Lets take an example of anime called tokyo revengers.</h4>
+### If you don't want to change directory and use ./ to execute the script every time, you can move the script to *bin* directory.
+```
+sudo mv anime-terminal /usr/local/bin/
+```
+and execute the script from anywhere in the terminal using command `anime-terminal`
 
-watch anime: <code color=cyan>./anime-terminal tokyo-revengers</code>
+### Example:
+#### Lets take an example of anime called tokyo revengers.
 
-download anime: <code color=cyan>./anime-terminal -d tokyo-revengers</code>
+To watch tokyo revengers: `./anime-terminal tokyo-revengers`
 
-resume watching anime: <code color=cyan>./anime-terminal -H tokyo-revengers</code>
+download anime: `./anime-terminal -d tokyo-revengers`
 
-<h3 color=green>Multiple episodes can be viewed/downloaded by giving the episode range like:</h3>
+resume watching anime: `./anime-terminal -H tokyo-revengers`
 
-Choose episode [1-13]: <code color=cyan>1 6</code>
+### Multiple episodes can be viewed/downloaded by giving the episode range like:
+Choose episode [1-13]: `1 6`
 
-This would open/download episodes 1 2 3 4 5 6
+This would open/download episodes 1 2 3 4 5 6.
