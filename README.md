@@ -97,11 +97,10 @@ resume watching anime:
 ./anime-terminal -H
 ```
 
-### If you don't want to change directory and use ./ to execute the script every time, you can move the script to *bin* directory.
+### If you don't want to change directory and use ./ to execute the script every time, you can move the script to *bin* directory and execute the script from anywhere in the terminal using command `anime-terminal`.
 ```
 sudo mv anime-terminal /usr/local/bin/
 ```
-and execute the script from anywhere in the terminal using command `anime-terminal`
 
 ### Example:
 #### Lets take an example of anime called tokyo revengers.
@@ -111,6 +110,8 @@ To watch tokyo revengers: `./anime-terminal tokyo-revengers`
 To download tokyo revengers: `./anime-terminal -d tokyo-revengers`
 
 To resume watching tokyo revengers: `./anime-terminal -H tokyo-revengers`
+
+### If you have moved the script to /usr/local/bin/, just use `anime-terminal tokyo-revengers`
 
 ### Multiple episodes can be viewed/downloaded by giving the episode range like:
 Choose episode [1-13]: `1 6`
